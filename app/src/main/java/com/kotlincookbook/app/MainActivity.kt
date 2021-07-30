@@ -13,17 +13,6 @@ class MainActivity : AppCompatActivity() {
         mAdapter= AndroidFlavourAdapter()
         flavour_list.layoutManager=LinearLayoutManager(this)
         flavour_list.adapter=mAdapter
-        var flavorList= mutableListOf<AndroidFlavours>(
-                AndroidFlavours("Cupcake",R.drawable.cupcake),
-                AndroidFlavours("Donut",R.drawable.donut),
-                AndroidFlavours("Eclair",R.drawable.eclair),
-                AndroidFlavours("Froyo",R.drawable.froyo),
-                AndroidFlavours("Gingerbread",R.drawable.gingerbread),
-                AndroidFlavours("HoneyComb",R.drawable.honeycomb),
-                AndroidFlavours("Icecream Sandwich",R.drawable.icecream),
-                AndroidFlavours("Jellybean",R.drawable.jellybean),
-                AndroidFlavours("KitKat",R.drawable.kitkat),
-                AndroidFlavours("Lollipop",R.drawable.lollipop))
         mAdapter.flavourItems=flavorList
         shuffle.setOnClickListener {
             mAdapter.flavourItems=flavorList.shuffle()
