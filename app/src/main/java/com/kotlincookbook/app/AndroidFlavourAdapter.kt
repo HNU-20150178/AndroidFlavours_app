@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import kotlin.properties.Delegates
 
 
@@ -30,6 +31,16 @@ class AndroidFlavourAdapter:RecyclerView.Adapter<AndroidFlavourAdapter.FlavourVi
         holder.name.text = flavourItems.get(holder.adapterPosition).name
         holder.image.loadImage(flavourItems.get(holder.adapterPosition).image)
     }
+    var image_url: String="https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+    //확장함수의 접두사(점앞에오는이름)을 리시버타입이라 부르며 이는 확장되는 대상 타입이다.
+    //이 리시버 객체는 함수 내에서 this키워드를 사용하여 접근가능하다.
+    // 확장 함수는 정적으로 처리된다. 스태틱 메소드이고, 인스턴스를 매개변수로 받는다는 것 외에는 화갖ㅇ하는 클래스와의 직접적인 연결은 없다/
+    private fun ImageView.loadImage(image_url: String){
+        Glide.with(context)
+            .load(image_url)
+            .into(this)
+    }
+
     inner class FlavourViewHolder(var view:View):RecyclerView.ViewHolder(view){
         var name:TextView = view.findViewById(R.id.textView)
         var image:ImageView = view.findViewById(R.id.imageView)
